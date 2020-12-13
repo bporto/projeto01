@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Projeto_01</string>
+    <string name="cd_logo">Logo</string>
+    <string name="txv_lbl_welcome">Seja Bem-vindo</string>
+    <string name="btn_lbl_login">Login</string>
+    <string name="btn_lbl_signup">Signup</string>
 </resources>
