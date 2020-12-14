@@ -1,20 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:layout_marginTop="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="182dp"
-        android:layout_marginTop="347dp"
-        android:layout_marginEnd="172dp"
-        android:text="Cadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:src="@drawable/ic_untitled"
+
+        android:contentDescription="@string/ctn_description_logo" />
+
+    <EditText
+        android:layout_marginTop="24dp"
+        android:id="@+id/edt_name"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_name"
+        android:inputType="textCapSentences"
+        android:autofillHints="name" />
+
+    <EditText
+
+        android:id="@+id/edt_email"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:autofillHints="e-mail" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:autofillHints="password" />
+
+    <EditText
+        android:id="@+id/edt_confirmPassword"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_confirm_password"
+        android:inputType="textPassword"
+        android:autofillHints="confirmPassword" />
+
+    <Button
+        android:id="@+id/btn_toSignup"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/btn_lbl_to_signup"
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
