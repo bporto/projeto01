@@ -2,32 +2,37 @@ package com.example.projeto_01
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.projeto_01.utils.SharedPrefUtils
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //actionbar
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Login"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
         val edtEmail = findViewById<EditText>(R.id.edt_login_email)
         val edtPassword = findViewById<EditText>(R.id.edt_Login_password)
-        val btnToSignup = findViewById<Button>(R.id.btn_toLogin)
+        val btnToLogin = findViewById<Button>(R.id.btn_toLogin)
 
-        val prefs = getSharedPreferences("Projeto01", Context.MODE_PRIVATE)
-
-
-        btnToSignup.setOnClickListener {
-            val storedEmail = prefs.getString("EMAIL", "null")
-            val storedPassword = prefs.getString("PASSWORD", "null")
+        btnToLogin.setOnClickListener {
+            val storedEmail = SharedPrefUtils.getString("EMAIL")
+            val storedPassword = SharedPrefUtils.getString("PASSWORD")
 
             if (edtEmail.text.toString() == storedEmail && edtPassword.text.toString() == storedPassword) {
-                val login = prefs.edit().putBoolean("ISLOGGED", true)
-                login.apply()
+
+                SharedPrefUtils.putBoolean("ISLOGGED", true)
+
                 Toast.makeText(this, "Seja Bem-Vindo!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
@@ -39,5 +44,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

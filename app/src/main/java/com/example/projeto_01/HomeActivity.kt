@@ -2,19 +2,30 @@ package com.example.projeto_01
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 class HomeActivity : AppCompatActivity() {
+
+
+    lateinit var edtName: EditText
+    lateinit var edtEmail: EditText
+    lateinit var btnExit: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val edtName = findViewById<EditText>(R.id.edt_home_name)
-        val edtEmail = findViewById<EditText>(R.id.edt_home_email)
-        val btnExit = findViewById<Button>(R.id.btn_exit)
+        //actionbar
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Home"
+
+        edtName = findViewById(R.id.edt_home_name)
+        edtEmail = findViewById(R.id.edt_home_email)
+        btnExit = findViewById(R.id.btn_exit)
 
         val prefs = getSharedPreferences("Projeto01", Context.MODE_PRIVATE)
 

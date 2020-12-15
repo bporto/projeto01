@@ -21,4 +21,16 @@ object SharedPrefUtils{
         return preferences.getString(key,"null")
     }
 
+    fun putString(key:String, value:String){
+        val editor = preferences.edit()
+        editor.putString(key, value)
+        editor.apply()
+    }
+
+    fun putBoolean(key:String, value:Boolean){
+        val editor = preferences.edit()
+        editor.putBoolean(key, value)
+        editor.apply()
+    }
+
 }
