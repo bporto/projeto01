@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projeto_01.utils.SharedPrefUtils
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash__screen)
+
+        SharedPrefUtils.init(this)
 
         startup()
     }
@@ -18,8 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private fun startup() {
         Handler(Looper.getMainLooper()).postDelayed({
 
-            val prefs = getSharedPreferences("Projeto01", Context.MODE_PRIVATE)
-            val isLogged = prefs.getBoolean("ISLOGGED", false)
+            val isLogged = SharedPrefUtils.getBool("ISLOGGED")
 
             if(isLogged){
                 val intent = Intent(this, HomeActivity::class.java)
