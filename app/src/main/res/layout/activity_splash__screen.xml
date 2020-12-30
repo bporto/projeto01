@@ -12,8 +12,10 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|clip_vertical|center_vertical"
         app:srcCompat="@drawable/ic_untitled"
+        android:contentDescription="@string/ctn_description_logo"
         />
 
 
